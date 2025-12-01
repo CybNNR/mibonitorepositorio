@@ -30,3 +30,18 @@ Se crean en los siguientes casos:
 |LinkedlistSingle| Ejercicio del examen, encontrar el valor minimo(Vease practica de C++)
 |Reversed_Single_Linkedlist| Ejercicio del overview (Vease practica de C++ mas imagen de ArielOrtiz.info)
 
+|°Stacks y queues°|
+
+Stack: Pila, basado en el principio last in, first out o LIFO, esta es un contenedor estandar de la biblioteca de c++, aunque el siguiente ejercicio sera exclusivamente de aquellos vistos en clase, mas adelante se vera los de los contenedores de la biblioteca standard de c++
+
+Cuenta con las siguientes operaciones: 
+    Capacity
+    Size
+    Isempty
+    push
+    pop
+    clear
+    peak
+
+|Stacks| Ejercicio en clase (Vease practica de c++)
+|Queues| Ejercicio en clase (Vease practica de c++)
