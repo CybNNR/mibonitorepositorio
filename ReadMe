@@ -1,4 +1,4 @@
-|Estructuras de datos y algoritmos|
+|*Estructuras de datos y algoritmos*|
 
 Big O notation: Tiempo de ejecucion de un algoritmo.
 Algoritmos: Recetas o pasos a seguir para lograr crear algo o llegar a un fin
@@ -44,4 +44,16 @@ Cuenta con las siguientes operaciones:
     peak
 
 |Stacks| Ejercicio en clase (Vease practica de c++)
+
+Queue: Cola basada en el principio de First in First out, es un contenedor que aparece en la biblioteca standard de c++, anque el siguiente ejercicio vera aquel visto en clase, mas adelante se vera los contenedores de la biblioteca standard de c++
+
+Cuentan con las siguientes operaciones:
+    capacity
+    clear
+    dequeue
+    enqueue
+    isempty
+    peek
+    size
+    
 |Queues| Ejercicio en clase (Vease practica de c++)
