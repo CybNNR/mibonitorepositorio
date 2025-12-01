@@ -26,5 +26,7 @@ Se crean en los siguientes casos:
     Modificacion de memoria de solo escritura, comunmente cuando se inrenta modificar un string literal
     Creacion de arreglos demasiado grandes (Stack overflow) -> Lleva a la corrupcion de memoria
 
-Linkedlists (Vease practica en C++)
+|Linkedlists| ejercicio en clase (Vease practica en C++)
+|LinkedlistSingle| Ejercicio del examen, encontrar el valor minimo(Vease practica de C++)
+|Reversed_Single_Linkedlist| Ejercicio del overview (Vease practica de C++ mas imagen de ArielOrtiz.info)
 
