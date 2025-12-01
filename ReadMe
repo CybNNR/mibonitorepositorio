@@ -1,0 +1,30 @@
+|Estructuras de datos y algoritmos|
+
+Big O notation: Tiempo de ejecucion de un algoritmo.
+Algoritmos: Recetas o pasos a seguir para lograr crear algo o llegar a un fin
+Estructuras de Datos: Contenedores de informacion la cual sera usada en un algoritmo
+
+Tiempo comun de ejecucuciones:
+O(N²): Insertionsort, Selectionsort, Bubblesort
+O(N Log(N)): Quicksort, Mergesort, Heapsort
+O(Log(N)): Bucketsort, Countingsort
+
+
+Memory Management in C++
+
+Memory Leaks
+Se crean elementos en el heap con los atributos "new", el no eliminar estos atributos hace que se creen memory leaks, para resolver esta problematica, se debe de hacer uso del destructor "delete"
+
+Forma correcta de crear y eliminar variables o en este caso apuntadores a arreglos
+int* arr = new int[];
+delete [] Pointervariable;
+
+Segmentation Faults:
+Se crean en los siguientes casos:
+    Intento de desreferenciar apuntadores nulos
+    Intento de acceder a memoria restringida o elementos que fueron eliminados o que no existen
+    Modificacion de memoria de solo escritura, comunmente cuando se inrenta modificar un string literal
+    Creacion de arreglos demasiado grandes (Stack overflow) -> Lleva a la corrupcion de memoria
+
+Linkedlists (Vease practica en C++)
+
