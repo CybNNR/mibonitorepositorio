@@ -1,6 +1,6 @@
 // comparador de palabras de mayor a menor: 
 
-#include <algoritm>
+#include <algorithm>
 #include <iostream>
 #include <vector>
 

@@ -55,5 +55,67 @@ Cuentan con las siguientes operaciones:
     isempty
     peek
     size
-    
+
 |Queues| Ejercicio en clase (Vease practica de c++)
+
+|Standard containers in C++|
+
+std::deque
+        -------------------------
+back--->|   |   |   |   |   |   | <---front
+        -------------------------
+    Operations:
+        Element access: 
+            at
+            front 
+            back
+        Capacity:
+            empty
+            size
+            max_size
+        Modifiers:
+            insert
+            push_back
+            pop_back
+            push_front
+            pop_front
+            swap
+
+std::list
+
+std::fowardlist
+
+std::vector
+
+std::array
+
+std::queue
+
+|-°Sorting Algorithms°-|
+
+O(N²): Insertionsort, Selectionsort, Bubblesort
+O(N Log(N)): Quicksort, Mergesort, Heapsort
+O(Log(N)): Bucketsort, Countingsort
+
+Insertion sort: Funciona creando un miniarreglo donde los elementos que se encuentran a la izquierda se va comparando para acomodar cada elemento entrante a la derecha, comparando elemento a elemento con en el mini arreglo de la derecha  de ahi O(N²), ya que este tiene que recorrer todos los elementos cada que pasa con un elemento. (insercion en miniarreglo)
+
+|Insertion Sort|: Vease en practica de C++
+
+Selectionsort: Se basa en el escaneo repetido de una porcion no ordenada de arreglo para encontrar el elemento mas pequeño y luego intecambendolo a la primera posicion de la seccion no ordenada, compara los elementos de los demas ,encuentra el mas pequeño y lo manda al inicio, de ahi con los demas va encontrando el mas pequeño y lo manda al inicio con el segundo mas pequeño
+
+|Selection sort|: vease en la practica de c++
+
+Bubble sort: 
+
+Mergesort:
+
+Quicksort:
+
+Heapsort: 
+
+Countingsort: 
+
+Bucketsort:
+
+|*---Algoritmo de ordenamiento de la biblioteca estandard de c++: std::sort---*|
+

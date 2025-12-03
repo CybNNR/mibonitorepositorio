@@ -8,6 +8,10 @@ int main(){
     std::deque d;
     std::stack s;
     
+    for(int x:v){
+        s.push(x);
+    }
+
     while(not s.empty()){
         int x = s.top();
         s.pop();
