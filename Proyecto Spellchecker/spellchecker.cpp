@@ -29,23 +29,27 @@ std::unordered_map<char, char> soundexMap = {
     {'l', '4'},
     {'m', '5'}, {'n', '5'},
     {'r', '6'}
-};
+}; // Contenedor de palabras no encontradas
 std::unordered_set<char> dropChar = {'a', 'e', 'i', 'o', 'u', 'h', 'w', 'y'};
-std::unordered_set<std::string> dictionary; // Para almacenar el diccionario de words.txt
-std::unordered_map<std::string,std::vector<std::string>> soundexDictionary;// aqui se guarda la clave con el vector de palabras que suenan similar del diccionario
+std::unordered_set<std::string> dictionary; 
+std::unordered_map<std::string,std::vector<std::string>> soundexDictionary;
 std::string dictionaryName = "words.txt";
-std::vector<word> words; // Contenedor de palabras de archivo leído
-std::vector<word> notFoundWords; // Contenedor de palabras no encontradas
+std::vector<word> words; 
+std::vector<word> notFoundWords;
 
 // Functions:
-// To convert the characters to lower it crosses all the letters in word
+
+/*To convert the characters to lower it crosses all the letters in word using the c++ standard libray function std::to_lower*/
 std::string to_lower(std::string word){
     for(char& letter : word){ 
         letter = std::tolower(letter);
     }
     return word;
 }
-/**/
+
+/* The encode_word function uses the function encode_word, leaving the first letter on uppercase,
+then it deletes the characters that coincide contained in the dropchar unordered_set, finally it adjusts size of the word 
+to be 7 letters long */ 
 std::string encode_word(std::string w){
     w=to_lower(w);
     w[0]=std::toupper(static_cast<char>(w[0]));
@@ -67,6 +71,8 @@ std::string encode_word(std::string w){
     return w;
 }
 
+/* The function print_words_found recives a vector wich contains all the words on a text, then it prints them by the word, line and
+ column where it was found */
 void print_words_found(const std::vector<word>& words){
     for (word w : words) {
         std::cout << w.text << "  (line " << w.line
@@ -74,6 +80,8 @@ void print_words_found(const std::vector<word>& words){
     }
 }
 
+/* The encoded_dictionary_build recieves the non-encoded dictionary and for every word on it,
+it encodes them and saves it on the map */
 void encoded_dictionary_build(const std::unordered_set<std::string>& dictionary2Encode, std::unordered_map<std::string,std::vector<std::string>>& dictionaryEncoded){
     for(const std::string& word2Encode : dictionary2Encode){
         std::string wordEncoded=encode_word(word2Encode);
@@ -81,6 +89,7 @@ void encoded_dictionary_build(const std::unordered_set<std::string>& dictionary2
     }
 };
 
+/* Provided by professor */
 bool dictionary_build(std::string dictionaryName){
     std::ifstream inputDictionary(dictionaryName);
     if(inputDictionary.fail()) return false;
@@ -103,6 +112,7 @@ bool dictionary_build(std::string dictionaryName){
     return true;
 }
 
+/* Provided by professor */
 bool read_words(const std::string& input_file_name, std::vector<word>& words){
     std::ifstream input_file(input_file_name);
     if (input_file.fail()) {
@@ -126,6 +136,7 @@ bool read_words(const std::string& input_file_name, std::vector<word>& words){
     return true;
 }
 
+/* The function print_suggestions recives a vector of suggestions and prints all available suggestions */
 void print_suggestions(const std::vector<std::string>& suggestions){
     bool firstTime=true;
     for(const std::string& suggest : suggestions){
@@ -138,33 +149,45 @@ void print_suggestions(const std::vector<std::string>& suggestions){
     std::cout<<"\n";
 
 }
+
+    bool firstTime=true;
+/* The main function works by reciving one file, wich will be the text used to find the words, it builds the dictionary converts the words in
+
+ */
 int main(int argc, char* argv[]){
     auto start = std::chrono::high_resolution_clock::now();
     std::string fileName;
+    // Launch message of missing filename to read in running command
     if(argc < 2){
         std::cout<<"\n\n\tText filename to read missing!\n\n";
         return 1;
     }else{
         fileName = argv[1];
     }
+    // Throws an exception if there's a fail building the dictionary
     if(!dictionary_build(dictionaryName)) throw std::ios_base::failure("\n\n\tUnable to find dictionary file!\n\n");
+    // Throws an exception if there's a fail reading the words from file entered
     if(!read_words(fileName, words)) throw std::ios_base::failure("\n\n\tUnable to find file to read!\n\n");
+    // Checks spelling from file comparing with dictionary
     for(int i = 0; i < words.size(); i++){
         bool flag=true;
         std::string wordToFind = to_lower(words[i].text);
         if(dictionary.count(wordToFind)){
-            continue;
+            continue; //If word is not misspelled, skip 
         }
         else{
+            // Checks if word was already found 
             for(const word& notFoundWord : notFoundWords){
                 if(to_lower(notFoundWord.text)==wordToFind) {
                     flag=false;
                     break;
                 }
             }
+            // If word is misspelled and is not repeated, appends it to notFoundWords vector
             if(flag) notFoundWords.push_back(words[i]);
         }
     }
+    // Finds suggestions for misspelled words and print them
     for(const word& notFoundWord : notFoundWords){
         bool firstTime = true;
         std::string notFoundWordEncoded = encode_word(notFoundWord.text);
@@ -181,6 +204,7 @@ int main(int argc, char* argv[]){
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     double total_time = duration.count() / 1'000'000.0;
-
-    std::cout<<"\n\n\n\t\tTotal Runtime: "<<total_time<<"\n\n";
+    
+    // Uncomment to see total runtime
+     std::cout<<"\n\n\n\t\tTotal Runtime: "<<total_time<<"\n\n";
 }

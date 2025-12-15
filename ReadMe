@@ -119,3 +119,16 @@ Bucketsort:
 
 |*---Algoritmo de ordenamiento de la biblioteca estandard de c++: std::sort---*|
 
+
+|° Searching algorithms °|
+
+|Linear search| 
+Se realiza la busqueda lineal hace un transcurso de todos los elementos de la lista, no importa que esta este desacomodada, lo que hace que sea una busqueda de O(n)
+
+|Linear Search|: Vease practica de c++
+
+|Binary search|
+Se realiza una busqueda SOLO con datos ORDENADOS, la manera en la que se hace es que se visita el elemento de la mitad del arreglo y se determina si el valor ques se busca esta antes o despues de este, cualquiera que sea el caso, se busca otra vez la mitad y se vuelve a comparar, asi hasta encontrar el valor, esta tiene una complejidad de O(log n)
+
+|Binary search|: vease practica en c++
+
